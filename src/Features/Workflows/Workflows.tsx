@@ -86,7 +86,11 @@ export default function WorkflowsHome() {
   const handleUpdateFilter = (query: { [key: string]: any }) => {
     const queryStr = `?${queryString.stringify(
       { ...queryString.parse(location.search, { arrayFormat: "comma" }), ...query },
-      { arrayFormat: "comma", skipEmptyString: true }
+      {
+        arrayFormat: "comma",
+        skipEmptyString: true,
+        skipNull: true
+      }
     )}`;
 
     history.push({ search: queryStr });

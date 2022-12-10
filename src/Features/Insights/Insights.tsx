@@ -77,18 +77,21 @@ export default function Insights() {
     toDate = defaultToDate,
   } = queryString.parse(location.search, queryStringOptions);
 
-  const insightsSearchParams = queryString.stringify(
-    {
-      scopes,
-      statuses,
-      teamIds,
-      triggers,
-      workflowIds,
-      fromDate,
-      toDate,
-    },
-    queryStringOptions
-  );
+  const insightsSearchParams = /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  queryString.stringify({
+    scopes,
+    statuses,
+    teamIds,
+    triggers,
+    workflowIds,
+    fromDate,
+    toDate,
+  }, queryStringOptions);
 
   const insightsUrl = serviceUrl.getInsights({ query: insightsSearchParams });
   const insightsQuery = useQuery<WorkflowInsightsRes>({
@@ -97,7 +100,13 @@ export default function Insights() {
   });
 
   function updateHistorySearch({ ...props }) {
-    const queryStr = `?${queryString.stringify({ ...props }, queryStringOptions)}`;
+    const queryStr = `?${/* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    queryString.stringify({ ...props }, queryStringOptions)}`;
     history.push({ search: queryStr });
     return;
   }

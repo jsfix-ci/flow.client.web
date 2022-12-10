@@ -70,15 +70,18 @@ export default function Schedules() {
     queryStringOptions
   );
 
-  const schedulesUrlQuery = queryString.stringify(
-    {
-      scopes,
-      statuses,
-      teamIds,
-      workflowIds,
-    },
-    queryStringOptions
-  );
+  const schedulesUrlQuery = /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  queryString.stringify({
+    scopes,
+    statuses,
+    teamIds,
+    workflowIds,
+  }, queryStringOptions);
   const getSchedulesUrl = serviceUrl.getSchedules({ query: schedulesUrlQuery });
 
   const schedulesQuery = useQuery<Array<ScheduleUnion>, string>({
@@ -96,14 +99,17 @@ export default function Schedules() {
     }
   }
 
-  const calendarUrlQuery = queryString.stringify(
-    {
-      scheduleIds: userScheduleIds,
-      fromDate,
-      toDate,
-    },
-    queryStringOptions
-  );
+  const calendarUrlQuery = /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  queryString.stringify({
+    scheduleIds: userScheduleIds,
+    fromDate,
+    toDate,
+  }, queryStringOptions);
   const getCalendarUrl = serviceUrl.getSchedulesCalendars({ query: calendarUrlQuery });
 
   /**
@@ -118,7 +124,13 @@ export default function Schedules() {
   }
 
   function updateHistorySearch({ ...props }) {
-    const queryStr = `?${queryString.stringify({ ...props }, queryStringOptions)}`;
+    const queryStr = `?${/* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    queryString.stringify({ ...props }, queryStringOptions)}`;
     history.push({ search: queryStr });
     return;
   }

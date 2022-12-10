@@ -53,34 +53,40 @@ function WorkflowActivity() {
   } = queryString.parse(location.search, queryStringOptions);
 
   /**** Start get some data ****/
-  const activityQuery = queryString.stringify(
-    {
-      order,
-      page,
-      size,
-      sort,
-      scopes,
-      statuses,
-      teamIds,
-      triggers,
-      workflowIds,
-      fromDate,
-      toDate,
-    },
-    queryStringOptions
-  );
+  const activityQuery = /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  queryString.stringify({
+    order,
+    page,
+    size,
+    sort,
+    scopes,
+    statuses,
+    teamIds,
+    triggers,
+    workflowIds,
+    fromDate,
+    toDate,
+  }, queryStringOptions);
 
-  const activityStatusSummaryQuery = queryString.stringify(
-    {
-      scopes,
-      teamIds,
-      triggers,
-      workflowIds,
-      fromDate,
-      toDate,
-    },
-    queryStringOptions
-  );
+  const activityStatusSummaryQuery = /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  /* TODO: JSFIX could not patch the breaking change:
+  Implement skips for stringify array format comma */
+  queryString.stringify({
+    scopes,
+    teamIds,
+    triggers,
+    workflowIds,
+    fromDate,
+    toDate,
+  }, queryStringOptions);
 
   const activitySummaryUrl = serviceUrl.getActivitySummary({ query: activitySummaryQuery });
   const activityStatusSummaryUrl = serviceUrl.getActivitySummary({ query: activityStatusSummaryQuery });
@@ -127,7 +133,13 @@ function WorkflowActivity() {
     sort = DEFAULT_SORT,
     ...props
   }) => {
-    const queryStr = `?${queryString.stringify({ order, page, size, sort, ...props }, queryStringOptions)}`;
+    const queryStr = `?${/* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    /* TODO: JSFIX could not patch the breaking change:
+    Implement skips for stringify array format comma */
+    queryString.stringify({ order, page, size, sort, ...props }, queryStringOptions)}`;
     history.push({ search: queryStr });
     return;
   };

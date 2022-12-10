@@ -5,7 +5,11 @@ import userEvent from "@testing-library/user-event";
 import WorkflowActivity from "./index";
 import { startApiServer } from "ApiServer";
 
-const queryStringOptions: StringifyOptions = { arrayFormat: "comma", skipEmptyString: true };
+const queryStringOptions: StringifyOptions = {
+  arrayFormat: "comma",
+  skipEmptyString: true,
+  skipNull: true
+};
 
 jest.setTimeout(60000);
 
